@@ -5,19 +5,16 @@ import { gsap } from "gsap";
 import { CustomEase } from "gsap/CustomEase";
 import { CustomBounce } from "gsap/CustomBounce";
 import { CustomWiggle } from "gsap/CustomWiggle";
-import { RoughEase, SlowMo, ExpoScaleEase } from "gsap/EasePack";
-import { SteppedEase } from "gsap/gsap-core";
+import { RoughEase, SlowMo } from "gsap/EasePack";
 
 export default function Easing() {
   useEffect(() => {
     gsap.registerPlugin(
       RoughEase,
-      ExpoScaleEase,
       SlowMo,
       CustomEase,
       CustomBounce,
       CustomWiggle,
-      SteppedEase
     );
 
     const wiggles = 8;
@@ -29,8 +26,7 @@ export default function Easing() {
     CustomWiggle.create("randomWiggle", {wiggles, type: "random"})
     CustomWiggle.create("uniformWiggle", {wiggles, type: "uniform"})
 
-    //custome bounce
-
+    //custom bounce
     CustomBounce.create("bouncingSquare", {
       strength: 0.6,
       squash: 3,
@@ -42,11 +38,14 @@ export default function Easing() {
   return (
     <div className="font-sans">
       <section className="h-screen flex flex-col items-center justify-center gap-4">
-        <h1>Rough Ease</h1>
+        <div className="text-3xl">
+
+          <h1>Rough Ease</h1>
+        </div>
         <div className="red-box w-20 h-20 rounded-xl bg-red-500"></div>
         <div className="flex flex-row gap-2">
           <button
-            className="bg-amber-500 px-4 py-2 rounded text-white"
+            className="bg-amber-500 hover:bg-amber-400 px-4 py-2 rounded text-white"
             onClick={()=> {
               gsap.from(".red-box", {
                 duration: 1,
@@ -59,7 +58,7 @@ export default function Easing() {
             Rough Ease
           </button>
           <button
-            className="bg-amber-500 px-4 py-2 rounded text-white"
+            className="bg-amber-500 hover:bg-amber-400 px-4 py-2 rounded text-white"
             onClick={() => {
               gsap.from(".red-box", {
                 duration: 1,
@@ -82,11 +81,13 @@ export default function Easing() {
       </section>
 
       <section className="h-screen flex flex-col items-center justify-center gap-4">
-        <h1>SlowMo</h1>
+        <div className="text-3xl">
+          <h1>SlowMo</h1>
+        </div>
         <div className="purple-box w-20 h-20 rounded-xl bg-purple-500"></div>
         <div className="flex flex-row gap-2">
           <button
-            className="bg-amber-500 px-4 py-2 rounded text-white"
+            className="bg-amber-500 hover:bg-amber-400 px-4 py-2 rounded text-white"
             onClick ={
               ()=> {
                 gsap.to(".purple-box", {
@@ -106,7 +107,7 @@ export default function Easing() {
             SlowMo
           </button>
           <button
-            className="bg-amber-500 px-4 py-2 rounded text-white"
+            className="bg-amber-500 hover:bg-amber-400 px-4 py-2 rounded text-white"
             onClick= {
               ()=> {
                 gsap.to(".purple-box", {
@@ -125,11 +126,13 @@ export default function Easing() {
 
 
       <section className="h-screen flex flex-col items-center justify-center gap-4 ">
-        <h1>Wiggles</h1>
+        <div className = "text-3xl">
+          <h1>Wiggles</h1>
+        </div>
         <div className="blue-box w-20 h-20 rounded-xl bg-blue-500"></div>
         <div className="flex flex-row gap-2">
           <button
-            className="bg-amber-500 px-4 py-2 rounded text-white"
+            className="bg-amber-500 hover:bg-amber-400 px-4 py-2 rounded text-white"
             onClick={
               ()=> {
                 gsap.to(".blue-box", {
@@ -147,7 +150,7 @@ export default function Easing() {
           </button>
 
           <button
-            className="bg-amber-500 px-4 py-2 rounded text-white"
+            className="bg-amber-500 hover:bg-amber-400 px-4 py-2 rounded text-white"
             onClick={
               ()=> {
                 gsap.to(".blue-box", {
@@ -165,7 +168,7 @@ export default function Easing() {
           </button>
 
           <button
-            className="bg-amber-500 px-4 py-2 rounded text-white"
+            className="bg-amber-500 hover:bg-amber-400 px-4 py-2 rounded text-white"
             onClick={
               ()=> {
                 gsap.to(".blue-box", {
@@ -183,7 +186,7 @@ export default function Easing() {
           </button>
 
           <button
-            className="bg-amber-500 px-4 py-2 rounded text-white"
+            className="bg-amber-500 hover:bg-amber-400 px-4 py-2 rounded text-white"
             onClick={
               ()=> {
                 gsap.to(".blue-box", {
@@ -201,7 +204,7 @@ export default function Easing() {
           </button>
 
           <button
-            className="bg-amber-500 px-4 py-2 rounded text-white"
+            className="bg-amber-500 hover:bg-amber-400 px-4 py-2 rounded text-white"
             onClick={
               ()=> {
                 gsap.to(".blue-box", {
@@ -224,10 +227,12 @@ export default function Easing() {
 
 
       <section className="h-screen flex flex-col items-center justify-center gap-4 ">
-        <h1>CustomBounce</h1>
+        <div className="text-3xl">
+          <h1>CustomBounce</h1>
+        </div>
         <div className="pink-box w-20 h-20 bg-pink-600 rounded-xl"></div>
         <button
-            className="bg-amber-500 px-4 py-2 rounded text-white"
+            className="bg-amber-500 hover:bg-amber-400 px-4 py-2 rounded text-white"
             onClick={
               ()=> {
                 gsap.from(".pink-box", { duration: 2, y: -200, ease: "bouncingSquare" });
