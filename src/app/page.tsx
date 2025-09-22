@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import gsap from "gsap";
 import Timeline from "./fundamentals/timeline";
 import Easing from "./fundamentals/easing";
+import Tween from "./fundamentals/tween";
 
 export default function Fundamentals() {
   const [activeDemo, setActiveDemo] = useState<"timeline" | "easing" | "tween" | null>(null);
@@ -99,6 +100,13 @@ export default function Fundamentals() {
             <Timeline />
           </div>
         )}
+
+        {activeDemo === "tween" && (
+          <div className="w-full flex justify-center">
+            <Tween />
+          </div>
+        )}
+
       </div>
     </div>
   );
