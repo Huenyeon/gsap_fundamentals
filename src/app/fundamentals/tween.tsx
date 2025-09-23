@@ -7,27 +7,27 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function Tween() {
     useEffect(() => {
+    
     // --- Seek ---
-        const seekAnim = gsap.fromTo(
-        ".seek-text",
-        { x: -300, scale: 0.5, rotation: -45, opacity: 0 },
-        {
-            x: 0,
-            scale: 1.5,
-            rotation: 0,
-            opacity: 1,
-            duration: 3,
-            ease: "elastic.out(1, 0.3)",
-            paused: true,
-        }
-        );
+    const seekAnim = gsap.fromTo(
+      ".seek-text",
+      { x: -400, opacity: 0 },   
+      {
+        x: 0,                    
+        opacity: 1,
+        duration: 4,             
+        ease: "power2.out",
+        paused: true,
+      }
+    );
 
-        ScrollTrigger.create({
-        trigger: ".seek-section",
-        start: "top 80%",
-        onEnter: () => seekAnim.seek(1.5).play(),
-        onLeaveBack: () => seekAnim.reverse(),
-        });
+    ScrollTrigger.create({
+      trigger: ".seek-section",
+      start: "top 80%",
+      onEnter: () => seekAnim.seek(2).play(),
+      onLeaveBack: () => seekAnim.reverse(),
+    });
+
 
     // --- Yoyo ---
     gsap.to(".yoyo-box", {
