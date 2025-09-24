@@ -45,7 +45,7 @@ export default function Tween() {
     });
 
     // --- Progress ---
-    gsap.fromTo(
+    const progressAnim = gsap.fromTo(
       ".progress-text",
       { scale: 0.5, opacity: 0.3 },
       {
@@ -53,11 +53,16 @@ export default function Tween() {
         opacity: 1,
         ease: "elastic.out(1,0.3)",
         stagger: 0.2,
+        duration: 1,
+        paused: true, 
         scrollTrigger: {
           trigger: ".progress-section",
           start: "top 80%",
           end: "top 20%",
           scrub: true,
+          onUpdate: (self) => {
+            progressAnim.progress(self.progress);
+          }
         },
       }
     );
